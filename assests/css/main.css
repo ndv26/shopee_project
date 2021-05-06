@@ -1,5 +1,9 @@
+.main {
+    overflow: hidden;
+}
+
 .header {
-    height: 120px;
+    height: var(--header-height);
     background-image: linear-gradient(#f53f2d,#fe6232);
     position: fixed;
     top: 0;
@@ -7,17 +11,18 @@
     right: 0;
     bottom: 0;
     width: 100%;
-    z-index: 10;
+    z-index: 4;
 }
 
 .spacing {
     width: 100%;
-    height: 120px;
+    height: var(--header-height);
 }
 
 .header__navbar {
     display: flex;
     justify-content: space-between;
+    height: var(--navbar-height);
 }
 
 .header__navbar-list {
@@ -70,6 +75,57 @@
 .header__navbar-item-ketnoi--no-pointer {
     cursor: text;
     color: var(--white-color);
+}
+
+/* ====== Header sort bar ======== */
+
+.header__sort-bar {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    height: var(--header-sort-bar-height);
+    background-color: var(--white-color);
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+    display: none;
+}
+
+.header__sort-item {
+    flex: 1;
+    list-style: none;
+}
+
+.header__sort-link {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 1.4rem;
+    display: block;
+    height: 100%;
+    line-height: var(--header-sort-bar-height);
+    text-align: center;
+    position: relative;
+}
+
+.header__sort-item--acitve .header__sort-link {
+    color: var(--primary-color);
+}
+
+.header__sort-item:first-child .header__sort-link::before {
+    display: none;
+}
+
+.header__sort-link::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 60%;
+    border-left: 1px solid #e5e5e5;
+    transform: translateY(-50%);
 }
 
 /*========= Header Navbar User ======= */
@@ -503,10 +559,20 @@
 /*============ HEADER WITH SEARCH =========== */
 
 .header-with-search {
-    height: 80px;
+    height: var(--header-with-search-height);
     display: flex;
     align-items: center;
     margin: 0 8px;
+}
+
+.header__mobile-search {
+    padding: 0 12px;
+    display: none;
+}
+
+.header__mobile-search-icon {
+    font-size: 2.6rem;
+    color: var(--white-color);
 }
 
 .header__logo {
@@ -517,6 +583,8 @@
 .header__logo-home {
     color: transparent;
     text-decoration: none;
+    display: block;
+    line-height: 0;
 }
 
 .header__logo-img {
@@ -629,6 +697,7 @@
     display: inline-block;
     padding: 6px 12px;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .header__cart-icon {
@@ -734,7 +803,7 @@
     list-style-type: none;
     margin: 0;
     padding: 0;
-    height: 40vh;
+    max-height: 30vh;
     overflow-y: auto;
 }
 
@@ -879,6 +948,62 @@
     color: var(--primary-color);
 }
 
+/* ===== moblie category ====== */
+
+.mobile-category {
+    display: none;
+}
+
+.mobile-category__list {
+    display: flex;
+    padding-left: 0;
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.mobile-category__list::-webkit-scrollbar {
+    display: none;
+}
+
+.mobile-category__item {
+    list-style: none;
+    flex-shrink: 0;
+    margin-right: 10px;
+}
+
+.mobile-category__item:nth-last-of-type(3n) .mobile-category__link {
+    background-color: #87AFD8;
+}
+
+.mobile-category__item:nth-last-of-type(3n + 1) .mobile-category__link {
+    background-color: #76C9BD;
+}
+
+.mobile-category__item:nth-last-of-type(3n + 2) .mobile-category__link {
+    background-color: #88CF81;
+}
+
+.mobile-category__link {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: var(--white-color);
+    font-size: 1.4rem;
+    line-height: 2rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    font-weight: 300;
+    width: 110px;
+    height: 40px;
+    border-radius: 4px;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    padding: 0 6px;
+}
+
 /* Home sort + filter */
 
 .home-filter {
@@ -949,7 +1074,7 @@
 .home-product__link {
     position: relative;
     display: block;
-    padding-bottom: 12px;
+    margin-bottom: 12px;
     text-decoration: none;
     transition: top 0.1s;
     top: 0;
@@ -1201,11 +1326,15 @@ i.home-product__action-icon-hearted {
     cursor: pointer;
 }
 
+.footer__body-download-app {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
 .footer__body-download-app-img {
     width: 80px;
     height: 20px;
-    margin-top: 5px;
-    margin-bottom: 22px;
     cursor: pointer;
 }
 
