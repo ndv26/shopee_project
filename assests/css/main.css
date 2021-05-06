@@ -1269,6 +1269,8 @@ i.home-product__action-icon-hearted {
 
 .footer__spacing--border {
     height: 120px;
+    width: 75%;
+    margin: 0 auto;
     border-bottom: 1px solid rgba(0,0,0,.12);
 }
 

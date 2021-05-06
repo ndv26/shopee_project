@@ -2,7 +2,7 @@
 
 @media (max-width: 1023px) {
     :root {
-        --header-height: 68px;
+        --header-height: 54px;
         --navbar-height: 0px;
     }
 
@@ -45,6 +45,12 @@
 /* Tablet */
 
 @media (min-width: 740px) and (max-width: 1023px) {
+
+    :root {
+        --header-height: 68px;
+        --navbar-height: 0px;
+    }
+
     .hide-on-tablet {
         display: none;
     }
@@ -125,16 +131,33 @@
         width: 110px;
     }
 
+    
+    .footer__body-heading {
+        text-align: center;
+    }
+    
+    .footer__body-list-item {
+        text-align: center;
+    }
+
+    .footer__body-download {
+        justify-content: center;
+    }
+
     .footer__header-container {
         display: block;
     }
-
-    .pd-0-44 {
-        padding: 0 44px;
+    
+    .footer__header-icon-description {
+        max-width: 192px;
     }
 
     .footer__body-pd {
         padding: 0 20px;
+    }
+
+    .footer__policy-item {
+        height: 74px;
     }
 }
 
